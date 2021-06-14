@@ -1,0 +1,640 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/assets/images/favicon.png">
+    <title>Studio Manager</title>
+    <!-- Custom CSS -->
+    <link href="/static/assets/node_modules/morrisjs/morris.css " rel="stylesheet">
+    <link href="/static/dist/css/style.min.css" rel="stylesheet">
+    <link href="/static/dist/css/pages/icon-page.css" rel="stylesheet">
+    <link href="/static/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/static/dist/css/style.min.css" rel="stylesheet">
+    <!-- Vector CSS -->
+
+    <!--c3 CSS -->
+    <link href="/static/dist/css/pages/easy-pie-chart.css" rel="stylesheet">
+    <!-- Custom <link href="../assets/node_modules/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="/static/dist/css/pages/dashboard2.css" rel="stylesheet">
+    <!-- page css -->
+    <link href="/static/assets/icons/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/dist/css/pages/file-upload.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <script type="text/javascript">
+        var username = '{{request.user}}'
+
+        function getCSRFToken(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getCSRFToken('csrftoken');
+    </script>
+</head>
+
+<body class="fixed-layout skin-purple">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">SepGrapics</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <!-- Logo icon -->
+                        <b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <!--<img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />-->
+                            <!-- Light Logo icon -->
+                            <!--<img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />-->
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span>
+                            <!-- dark Logo text -->
+                            <!--<img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />-->
+                            <!-- Light Logo text -->
+                           <!--<img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />-->
+                        </span>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto">
+                        <!-- This is  -->
+
+
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <!--search nav area -->
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Comment -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ti-email"></i>
+                                <div class="notify">
+                                    <span class="heartbit"></span>
+                                    <span class="point"></span>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Notifications</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-link"></i>
+                                                </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Luanch Admin</h5>
+                                                    <span class="mail-desc">Just see the my new admin!</span>
+                                                    <span class="time">9:30 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center link" href="javascript:void(0);">
+                                            <strong>Check all notifications</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Comment -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="icon-note"></i>
+                                <div class="notify">
+                                    <span class="heartbit"></span>
+                                    <span class="point"></span>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu mailbox dropdown-menu-right animated bounceInDown" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">You have 1 new messages</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="user-img">
+                                                    <img src="/static/assets/images/users/1.jpg" alt="user" class="img-circle">
+                                                    <span class="profile-status online pull-right"></span>
+                                                </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pavan kumar</h5>
+                                                    <span class="mail-desc">Just see the my admin!</span>
+                                                    <span class="time">9:30 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center link" href="javascript:void(0);">
+                                            <strong>See all e-Mails</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- mega menu -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- End mega menu -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item right-side-toggle">
+                            <a class="nav-link  waves-effect waves-light" href="javascript:void(0)">
+                                <i class="ti-settings"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar ">
+                <!-- User Profile-->
+                <div class="user-profile">
+                    <div class="user-pro-body">
+                        <div>
+                            <img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle">
+                        </div>
+                        <div class="dropdown">
+                            <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome&nbsp;{{request.user}}
+                                <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu animated flipInY">
+                                <!-- text-->
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="ti-user"></i> My Profile</a>
+                                <!-- text-->
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="ti-wallet"></i> My Balance</a>
+                                <!-- text-->
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="ti-email"></i> Inbox</a>
+                                <!-- text-->
+                                <div class="dropdown-divider"></div>
+                                <!-- text-->
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="ti-settings"></i> Account Setting</a>
+                                <!-- text-->
+                                <div class="dropdown-divider"></div>
+                                <!-- text-->
+                                <a href="/logout" class="dropdown-item">
+                                    <i class="fa fa-power-off"></i>idfd Logout</a>
+                                <!-- text-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-dashboard"></i>
+                                <span class="hide-menu">Dashboard
+                                    <span class="badge badge-pill badge-cyan ml-auto"></span>
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/dashboard">Analysis</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-user"></i>
+                                <span class="hide-menu">Users
+                                    <span class="badge badge-pill badge-primary text-white ml-auto"></span>
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/signup">Create Account</a>
+                                </li>
+                                <li>
+                                    <a href="/listUsers">List Users</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-grid2"></i>
+                                <span class="hide-menu">Setup</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/add_region_name">Add Region</a>
+                                </li>
+                                <li>
+                                    <a href="/get_all_region">List Regions</a>
+                                </li>
+                                <li>
+                                    <a href="/add_city">Add City</a>
+                                </li>
+                                <li>
+                                    <a href="/get_all_cities">List Cities</a>
+                                </li>
+                                <li>
+                                    <a href="/add_service">Add Service</a>
+                                </li>
+                                <li>
+                                    <a href="/get_all_services">List Service</a>
+                                </li>
+                                <li>
+                                    <a href="/add_branch">Add Branch</a>
+                                </li>
+                                <li>
+                                    <a href="/get_all_branch">List Branches</a>
+                                </li>
+                                <li>
+                                    <a href="/add_office">Add Office Address</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-palette"></i>
+                                <span class="hide-menu">Department
+                                    <span class="badge badge-pill badge-primary text-white ml-auto"></span>
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/add_department">Add Department</a>
+                                </li>
+                                <li>
+                                    <a href="/list_department">List Departments</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-window"></i>
+                                <span class="hide-menu">Human Resource
+                                    <span class="badge badge-pill badge-primary text-white ml-auto"></span>
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/add_employee">Add Employee</a>
+                                </li>
+                                <li>
+                                    <a href="/list_employee">Employee List</a>
+                                </li>
+                                <li>
+                                    <a href="/add_posit">Add Position</a>
+                                </li>
+                                <li>
+                                    <a href="/list_position">List Position</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layers"></i>
+                                <span class="hide-menu">Customers
+                                    <span class="badge badge-pill badge-primary text-white ml-auto"></span>
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/add_client">Add Client</a>
+                                </li>
+                                <li>
+                                    <a href="/list_client">Clients List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-money"></i>
+                                <span class="hide-menu">Finance
+                                    <span class="badge badge-pill badge-primary text-white ml-auto"></span>
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/add_client">Add Client</a>
+                                </li>
+                                <li>
+                                    <a href="/list_client">Clients List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-accordion-list"></i>
+                                <span class="hide-menu">Order
+                                    <span class="badge badge-pill badge-primary text-white ml-auto"></span>
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/store">Make Order</a>
+                                </li>
+                                <li>
+                                    <a href="/jobs">Orders</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-target"></i>
+                                <span class="hide-menu">Sales
+                                    <span class="badge badge-pill badge-primary text-white ml-auto"></span>
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/add_client">Add Client</a>
+                                </li>
+                                <li>
+                                    <a href="/list_client">Clients List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-medall"></i>
+                                <span class="hide-menu">Jobs
+                                    <span class="badge badge-pill badge-primary text-white ml-auto"></span>
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/assign_job">Assign Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="#">Completed</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-dark" href="{% url 'logout" aria-expanded="false">
+                                <i class="ti-power-off"></i>
+                                <span class="hide-menu">Log Out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!--<div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Basic Form</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript:void(0)">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active">Basic Form</li>
+                            </ol>
+                            <button type="button" class="btn btn-info d-none d-lg-block m-l-15">
+                                <i class="fa fa-plus-circle"></i> Create New</button>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- row -->
+
+                <!-- row -->
+                <!-- .row -->
+                {% block main %} {% endblock %}
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!--right-sidebar goes here-->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer">
+            © 2021 by gmc
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/static/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/static/assets/node_modules/popper/popper.min.js"></script>
+    <script src="/static/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="/static/dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="/static/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="/static/dist/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="/static/assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="/static/assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/static/dist/js/custom.min.js"></script>
+    <script src="/static/assets/node_modules/flot/jquery.flot.js"></script>
+    <script src="/static/assets/node_modules/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <!--sparkline JavaScript -->
+    <script src="/static/assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!-- EASY PIE CHART JS -->
+    <script src="/static/assets/node_modules/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <script src="/static/assets/node_modules/jquery.easy-pie-chart/easy-pie-chart.init.js"></script>
+    <!-- Vector map JavaScript -->
+    <script src="/static/assets/node_modules/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="/static/assets/node_modules/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- Chart JS -->
+    <script src="/static/dist/js/waves.js"></script>
+    <script src="/static/dist/js/dashboard2.js"></script>
+    <script src="/static/dist/js/custom.min.js"></script>
+    <script src="/static/assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="/static/assets/node_modules/morrisjs/morris.js"></script>
+    <script src="/static/dist/js/pages/morris-data.js"></script>
+    <script type="text/javascript" src="/static/dist/js/cart.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <script src="/static/dist/js/pages/jasny-bootstrap.js"></script>
+    <script src="/static/assets/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/static/assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js"></script>
+    <script>
+        $(function() {
+            $('#myTable').DataTable();
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function(settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function(group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function() {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+            // responsive table
+            $('#config-table').DataTable({
+                responsive: true
+            });
+            $('#example23').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+            $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
+        });
+    </script>
+
+</body>
+
+</html>
